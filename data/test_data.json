@@ -1,0 +1,162 @@
+{
+  "mot_de_passe": "secret_sauce",
+  "comptes": {
+    "standard": "standard_user",
+    "bloqué": "locked_out_user",
+    "problème": "problem_user",
+    "erreur": "error_user",
+    "visuel": "visual_user",
+    "lent": "performance_glitch_user"
+  },
+  "identifiants_invalides": {
+    "champs vides": {
+      "identifiant": "",
+      "mot_de_passe": ""
+    },
+    "identifiant vide": {
+      "identifiant": "",
+      "mot_de_passe": "secret_sauce"
+    },
+    "mot de passe vide": {
+      "identifiant": "standard_user",
+      "mot_de_passe": ""
+    },
+    "mot de passe incorrect": {
+      "identifiant": "standard_user",
+      "mot_de_passe": "mauvais_mdp"
+    },
+    "identifiant inconnu": {
+      "identifiant": "inconnu",
+      "mot_de_passe": "secret_sauce"
+    },
+    "casse différente": {
+      "identifiant": "Standard_User",
+      "mot_de_passe": "secret_sauce"
+    }
+  },
+  "messages": {
+    "identifiant obligatoire": "Epic sadface: Username is required",
+    "mot de passe obligatoire": "Epic sadface: Password is required",
+    "identifiants invalides": "Epic sadface: Username and password do not match any user in this service",
+    "compte bloqué": "Epic sadface: Sorry, this user has been locked out.",
+    "accès refusé": "Epic sadface: You can only access '{chemin}' when you are logged in.",
+    "prénom obligatoire": "Error: First Name is required",
+    "nom obligatoire": "Error: Last Name is required",
+    "code postal obligatoire": "Error: Postal Code is required",
+    "commande confirmée": "Thank you for your order!"
+  },
+  "titres": {
+    "catalogue": "Products",
+    "panier": "Your Cart",
+    "informations client": "Checkout: Your Information",
+    "récapitulatif": "Checkout: Overview",
+    "confirmation": "Checkout: Complete!"
+  },
+  "boutons": {
+    "ajouter": "Add to cart",
+    "retirer": "Remove"
+  },
+  "produits": [
+    {
+      "nom": "Sauce Labs Backpack",
+      "prix": 29.99
+    },
+    {
+      "nom": "Sauce Labs Bike Light",
+      "prix": 9.99
+    },
+    {
+      "nom": "Sauce Labs Bolt T-Shirt",
+      "prix": 15.99
+    },
+    {
+      "nom": "Sauce Labs Fleece Jacket",
+      "prix": 49.99
+    },
+    {
+      "nom": "Sauce Labs Onesie",
+      "prix": 7.99
+    },
+    {
+      "nom": "Test.allTheThings() T-Shirt (Red)",
+      "prix": 15.99
+    }
+  ],
+  "tris": {
+    "nom croissant": {
+      "libelle": "Name (A to Z)",
+      "critere": "nom",
+      "decroissant": false
+    },
+    "nom décroissant": {
+      "libelle": "Name (Z to A)",
+      "critere": "nom",
+      "decroissant": true
+    },
+    "prix croissant": {
+      "libelle": "Price (low to high)",
+      "critere": "prix",
+      "decroissant": false
+    },
+    "prix décroissant": {
+      "libelle": "Price (high to low)",
+      "critere": "prix",
+      "decroissant": true
+    }
+  },
+  "tri_par_defaut": "nom croissant",
+  "clients": {
+    "valide": {
+      "prenom": "Marie",
+      "nom": "Curie",
+      "code_postal": "75005"
+    },
+    "vide": {
+      "prenom": "",
+      "nom": "",
+      "code_postal": ""
+    },
+    "sans prénom": {
+      "prenom": "",
+      "nom": "Curie",
+      "code_postal": "75005"
+    },
+    "sans nom": {
+      "prenom": "Marie",
+      "nom": "",
+      "code_postal": "75005"
+    },
+    "sans code postal": {
+      "prenom": "Marie",
+      "nom": "Curie",
+      "code_postal": ""
+    },
+    "espaces": {
+      "prenom": "   ",
+      "nom": "   ",
+      "code_postal": "   "
+    }
+  },
+  "commande": {
+    "taux_taxe": 0.08,
+    "paiement": "SauceCard #31337",
+    "livraison": "Free Pony Express Delivery!",
+    "libelles_totaux": {
+      "sous_total": "Item total: ${montant}",
+      "taxe": "Tax: ${montant}",
+      "total": "Total: ${montant}"
+    }
+  },
+  "anomalies": {
+    "BUG-01": "Une commande peut être validée avec un panier vide",
+    "BUG-02": "Le formulaire de commande accepte des champs composés d'espaces",
+    "BUG-03": "Après « Reset App State », les boutons restent sur « Remove »",
+    "BUG-05": "Le tri du catalogue est sans effet (problem_user)",
+    "BUG-06": "Un clic sur un produit ouvre la fiche d'un autre produit (problem_user)",
+    "BUG-07": "Impossible d'ajouter 3 produits au panier depuis le catalogue (problem_user, error_user)",
+    "BUG-09": "La saisie du nom écrase le prénom (problem_user)",
+    "BUG-10": "Le tri déclenche une alerte « Sorting is broken! » (error_user)",
+    "BUG-12": "Le bouton « Finish » est sans effet (error_user)",
+    "BUG-13": "Prix du catalogue faux et différents à chaque chargement (visual_user)"
+  }
+}
