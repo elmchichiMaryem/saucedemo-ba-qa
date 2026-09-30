@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Environnement virtuel
+venv/
+.venv/
+env/
+
+# Rapports de test
+reports/
+report.html
+assets/
+test-results/
+playwright-report/
+
+# Captures d'écran et traces générées automatiquement
+screenshots/
+*.trace.zip
+videos/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
