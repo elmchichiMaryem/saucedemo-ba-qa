@@ -1,0 +1,51 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # lancement manuel depuis l'onglet Actions
+
+permissions:
+  contents: read
+
+# Un nouveau push annule l'exécution précédente encore en cours sur la même branche
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Suite BDD (Chromium headless)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Installer Chromium et ses dépendances système
+        run: playwright install --with-deps chromium
+
+      - name: Exécuter les tests (headless)
+        # pytest-playwright lance le navigateur en mode headless par défaut ;
+        # le rapport HTML est défini dans pytest.ini (reports/rapport_tests.html)
+        run: pytest --browser chromium
+
+      - name: Publier le rapport HTML
+        if: always() # publié même si des tests échouent
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-tests
+          path: reports/
+          retention-days: 30
